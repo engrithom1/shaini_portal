@@ -1,0 +1,287 @@
+<!-- Header Start -->
+<header class="header clearfix">
+    <button type="button" id="toggleMenu" class="toggle_menu">
+        <i class='uil uil-bars'></i>
+    </button>
+    <button id="collapse_menu" class="collapse_menu">
+        <i class="uil uil-bars collapse_menu--icon "></i>
+        <span class="collapse_menu--label"></span>
+    </button>
+    <div class="res_main_logo">
+        <a href="index.html"><img src="images/footer_logo.svg" alt=""></a>
+    </div>
+    <div class="main_logo" id="logo">
+        <!--a href="index.html"><img class="logo-main" src="/images/logo.svg" alt=""></a>
+        <a href="index.html"><img class="logo-inverse" src="/images/dark_logo.svg" alt=""></a-->
+        <h3><a class="logo-main" href="index.html">ShainiPortal</a></h3>
+        <h3><a class="logo-inverse" href="index.html">ShainiPortal</a></h3>
+    </div>
+    <div class="header_search">
+        <form class="search-input" role="search" action="/search" method="POST">				
+            <input type="text" class="header-input-control" placeholder="Search by creator, collectible or collection">
+            <span class="header-search-icon"><i class="uil uil-search icon"></i></span>
+        </form>
+    </div>
+    <div class="header_right ms-auto">
+        <ul>
+            <% if (!userInfo.isLoged) { %>
+            <li>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="main-btn btn-hover me-3">Sign In</a>
+            </li>
+            <% } %>
+            <li>
+                <a href="#searchModel" class="header_links" data-bs-toggle="modal">
+                    <i class="uil uil-search"></i>
+                </a>
+            </li>
+            
+            <% if (userInfo.isLoged) { %>
+                <li class="dropdown">
+                    <a href="#" class="header_links" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                        <i class="uil uil-envelope-alt"></i>
+                        <span class="activity-badge">4</span>
+                    </a>
+                </li>
+               
+                <li class="dropdown">
+                    <a href="#" class="header-account" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                        <span><%= userInfo.user.username %>..</span>
+                        <img src="/images/left-imgs/img-10.jpg" alt="avatar">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-account dropdown-menu-end">
+                        <div class="account_name">
+                            <div class="name_dt">
+                                <h4>Hi <%= userInfo.user.username %></h4>
+                            </div>
+                        </div>
+                        <ul>
+                           
+                            <li><a class="dropdown-item" href="my_profile_detail_view_created.html">My Items</a></li>
+                            <li><a class="dropdown-item" href="#editprofileModal" data-bs-toggle="modal" role="button">Edit Profile</a></li>
+                            
+                            
+                            <li class="dropdown-menu-footer">
+                                <a class="dropdown-item text-center" href="/logout">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>    
+            <% } %>
+
+           
+            
+        </ul>		
+    </div>
+    
+</header>
+<!-- Header End -->
+<!-- Left Sidebar Start -->
+<nav class="vertical_nav">
+    <div class="left_section menu_left" id="js-menu" >
+        <div class="left_section">
+            <ul>
+                <li class="menu--item">
+                    <a href="/" class="menu--link" id="home" title="Home">
+                        <i class='uil uil-home-alt menu--icon'></i>
+                        <span class="menu--label">Home</span>
+                    </a>
+                </li>					
+                <li class="menu--item">
+                    <a href="/course/videos" class="menu--link" title="Video Course">
+                        <i class='uil uil-compass menu--icon'></i>
+                        <span class="menu--label">Video Course</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="/course/audios" class="menu--link" title="Audio Course">
+                        <i class='uil uil-users-alt menu--icon'></i>
+                        <span class="menu--label">Audio Course</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="/course/books" class="menu--link" title="Books">
+                        <i class='uil uil-list-ui-alt menu--icon'></i>
+                        <span class="menu--label">Books</span>
+                    </a>
+                </li>			
+            </ul>
+        </div>
+        <div class="left_section pt-2">
+            <ul>
+                <li class="menu--item_community">
+                    <h4>Community</h4>
+                </li>
+                <li class="menu--item">
+                    <a href="/jobs" class="menu--link" id="jobs" title="Jobs">
+                        <i class='uil uil-question-circle menu--icon'></i>
+                        <span class="menu--label">Jobs</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="/blog" class="menu--link" id="blog" title="Blog">
+                        <i class='uil uil-rss menu--icon'></i>
+                        <span class="menu--label">Blog</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="/jobs/candidates" class="menu--link" id="candidates" title="Candidates">
+                        <i class='uil uil-users-alt menu--icon'></i>
+                        <span class="menu--label">Candidates</span>
+                    </a>
+                </li>
+                <li class="menu--item">
+                    <a href="/jobs/companies" class="menu--link" id="companies" title="Companies">
+                        <i class='uil uil-envelope-alt menu--icon'></i>
+                        <span class="menu--label">Companies</span>
+                    </a>
+                </li>
+                <% if (userInfo.isLoged) { %>
+                <li class="menu--item_community">
+                    <h4>Profile</h4>
+                </li>
+                <li class="menu--item menu--item__has_sub_menu">
+                    <label class="menu--link" title="Pages">
+                        <i class='uil uil-file menu--icon'></i>
+                        <span class="menu--label"><%= userInfo.user.username %></span>
+                    </label>
+                    <ul class="sub_menu">
+                        <li class="sub_menu--item">
+                            <a href="about.html" class="sub_menu--link">My Account</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="sign_in.html" class="sub_menu--link">Payments</a>
+                        </li>
+                        <!--li class="sub_menu--item">
+                            <a href="forgot_password.html" class="sub_menu--link">Comments</a>
+                        </li-->
+                        <li class="sub_menu--item">
+                            <a href="sign_in.html" class="sub_menu--link">Favorite</a>
+                        </li>
+                        <% if (userInfo.user.role >= 1) { %>
+                        <li class="sub_menu--item">
+                            <a href="connect_wallet.html" class="sub_menu--link">Videos</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="coming_soon.html" class="sub_menu--link">Audios</a>
+                        </li>
+                        <li class="sub_menu--item">
+                            <a href="error_404.html" class="sub_menu--link">Books</a>
+                        </li>	
+                        <li class="sub_menu--item">
+                            <a href="/blog/admin" class="sub_menu--link">Blogs</a>
+                        </li>	
+                        <li class="sub_menu--item">
+                            <a href="submit_request.html" class="sub_menu--link">Jobs</a>
+                        </li>
+                        <% } %>		
+                    </ul>
+                </li>
+                <% } %>	
+            </ul>
+        </div>
+        <div class="left_footer">
+            <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="career-2.html">Career</a></li>
+                <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+            </ul>
+            <div class="left_footer_content">
+                <p><i class="uil uil-copyright"></i> 2022 <strong>Ukiyox</strong>. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Left Sidebar End -->
+
+<!-- Responsive Search Model Start-->
+<div class="modal fade responsive-search-model" id="searchModel" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog search-area">
+        <div class="search-inner">
+            <div class="modal-header">
+                <button type="button" class="btn-close responsive-close-btn" data-bs-dismiss="modal" aria-label="Close"><i class="uil uil-multiply"></i></button>
+            </div>
+            <div class="modal-content search-modal-content">
+                <div class="search-popup">
+                    <div class="search-input-content">
+                        <input class="input-control" type="text" placeholder="Search">
+                        <button class="search-btn btn-hover" type="submit"><i class="uil uil-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Responsive Search Model End-->
+
+<!-- login Model Start-->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Log in</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="convert-form">
+                    <form action="/login" method="post">
+                        <div class="form-group position-relative">
+                            <label for="eth_amount" class="form-label">Username*</label>
+                            <input class="input-control" name="username" type="text" id="eth_amount" value="" placeholder="Enter Amount">
+                        </div>
+                        <div class="form-group position-relative mt-4">
+                            <label for="received_amount" class="form-label">Password*</label>
+                            <input class="input-control" name="password" type="text" id="received_amount" value="" placeholder="Amount you will receive">
+                        </div>
+                        <div class="form-group position-relative mt-4">
+                        <button type="submit" class="btn main-btn btn-hover w-100 h-40">Log in</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+                <a class="text-primary" href="">Forget Password</a>
+                <span>Don't have Account<a class="text-primary" data-bs-toggle="modal" data-bs-target="#registerModal" href=""> Register</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- login Model End-->
+
+<!-- Register Model Start-->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="convert-form">
+                    <form action="/register" method="post">
+                        <div class="form-group position-relative">
+                            <label for="eth_amount" class="form-label">Username*</label>
+                            <input class="input-control" minlength="2" maxlength="10" type="text" id="eth_amount" value="" placeholder="Enter Amount">
+                        </div>
+                        <div class="form-group position-relative  mt-4">
+                            <label for="eth_amount" class="form-label">Phone*</label>
+                            <input class="input-control" minlength="10" maxlength="10" type="text" id="eth_amount" value="" placeholder="0xxxxxxxxx">
+                        </div>
+                        <div class="form-group position-relative mt-4">
+                            <label for="received_amount" class="form-label">Password* <span>8-12 Characters</span></label>
+                            <input class="input-control" minlength="8" maxlength="12" type="text" id="received_amount" value="" placeholder="........">
+                        </div>
+                        <div class="form-group position-relative mt-4">
+                        <button type="button" class="btn main-btn btn-hover w-100 h-40" data-bs-target="#resetpasswordModal" data-bs-toggle="modal" data-bs-dismiss="modal">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-between">
+                <a class="text-primary" href=""></a>
+                <span>Have Account<a class="text-primary" href=""> Log in</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Register Model End-->

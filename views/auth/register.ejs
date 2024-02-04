@@ -1,0 +1,62 @@
+<main class="sign-wrapper">	
+    <div class="sign-section">
+        <div class="container">					
+            <div class="row justify-content-md-center">
+                <div class="col-md-10">
+                    <div class="main-card">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <div class="lg-left">
+                                    <div class="lg-logo">
+                                        <a href="index.html"><img src="images/dark_logo.svg" alt=""></a>
+                                    </div>
+                                    <span class="sign-copyright"><i class="uil uil-copyright"></i> 2022 <strong>ShainiPortal</strong>. All Rights Reserved.</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="lr-right">
+                                    <div class="sign-title">
+                                        <div class="lg-logo d-lg-none mb-5" id="logo">
+                                            <a href="index.html"><img class="logo-main" src="images/logo.svg" alt=""></a>
+                                            <a href="index.html"><img class="logo-inverse" src="images/dark_logo.svg" alt=""></a>
+                                        </div>
+                                        <h2>Sign Up</h2>
+                                        <p class="text-capitalize">Join the big teem where successful people help one onother to get more. </p>
+                                    </div>
+                                   
+                                    <div class="login-register-form mt-5">
+                                        <form action="/register" method="post">
+                                            <div class="form-group position-relative">
+                                                <p class="text-danger"><%= message %></p>
+                                            </div>
+                                            <div class="form-group position-relative">									
+                                                <input name="username" class="input-control" minlength="2" maxlength="18" required type="text" placeholder="username ">
+                                            </div>	
+                                            <div class="form-group position-relative mt-3">									
+                                                <input name="phone_number" class="input-control" minlength="10" maxlength="10" required type="text" placeholder="0xxxxxxxx">
+                                            </div>	
+                                            <div class="form-group position-relative mt-3">								
+                                                <input name="password" class="input-control" minlength="8" maxlength="12" required type="password" placeholder="password ">
+                                            </div>												
+                                            <button class="main-btn btn-hover w-100 h-40 mt-3" type="submit">Register</button>
+                                        </form>
+                                        <div class="modal-footer d-flex justify-content-between">
+                                            <span>Have Account<a class="text-primary" href="/login"> Log in</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="sign-bottom-links">
+                                        <ul class="sign_links">
+                                            <li><a href="#">Privacy Policy</a></li>
+                                            <li><a href="#">Terms</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>							
+            </div>										
+                                
+        </div>
+    </div>
+</main>

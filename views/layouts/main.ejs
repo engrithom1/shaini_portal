@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon Icon -->
+	<link rel="icon" type="image/png" href="/images/fav.png">
+
+    <title><%= locals.title %></title>
+    <meta name="description" content="<%= locals.description %>"/>
+    <!-- Stylesheets -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet'>
+    <link href='/vendor/unicons-2.0.1/css/unicons.css' rel='stylesheet'>
+    <link href="/css/vertical-responsive-menu.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link href="/css/dark-mode.css" rel="stylesheet">
+    
+    <!-- Vendor Stylesheets -->
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="/vendor/OwlCarousel/assets/owl.carousel.css" rel="stylesheet">
+    <link href="/vendor/OwlCarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+
+    <script type="text/javascript" defer src="/js/myjs.js"></script>
+</head>
+<body class="h-100">
+    <!-- Pre-loader Start-->
+	<div class="loader-container">
+		<div class="loader-ripple">
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<!-- Pre-loader End-->
+   <%- include("../layouts/header.ejs") %>
+   <div class="wrapper d-flex flex-column h-100">
+   <!-- Body Start -->
+   <%- body %>
+   <!-- Body End -->
+   <%- include("../layouts/footer.ejs") %>
+   </div>
+
+    <script src="/js/vertical-responsive-menu.min.js"></script>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/vendor/OwlCarousel/owl.carousel.js"></script>
+	<script src="/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>	
+	<script src="/js/custom.js"></script>
+	<script src="/js/mixitup.min.js"></script>
+	<script src="/js/dark-mode-switch.min.js"></script>
+</body>
+</html>

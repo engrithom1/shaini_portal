@@ -1,0 +1,219 @@
+<div class="main-wrapper">
+    <div class="container-fluid">						
+        <div class="row">
+            <div class="col-xl-12 col-lg-12">
+                <div class="title-heading">
+                    <div class="main-title-1 mb-5">
+                        <h2>Admin Blog Page</h2>
+                    </div>							
+                </div>
+                <div class="explore-list-items">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-3 col-md-2 order-md-2">
+                           
+                        </div>
+                        <div class="col-xl-9 col-lg-9 col-md-10 order-md-1">
+                            <div class="activity-tabs">
+                                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true">Approved</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-following-tab" data-bs-toggle="pill" data-bs-target="#pills-following" type="button" role="tab" aria-controls="pills-following" aria-selected="false">Not Yet</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="create-form-tab" data-bs-toggle="pill" data-bs-target="#create-form" type="button" role="tab" aria-controls="create-form" aria-selected="false">Create Post</button>
+                                    </li>
+                                    
+                                </ul>
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+                                        <div class="activities-list">
+                                            <% if(afeeds.length == 0){ %>
+                                                <div class="activity">
+                                                    <div class="activity-empty-item">
+                                                        <div class="activity-empty-text">
+                                                            <div class="activity-empty-icon">
+                                                                <span><i class="uil uil-bell"></i></span>
+                                                            </div>
+                                                            No Blog post found
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% } %>
+                                            <ul class="activity-list activities-group">
+                                                <% afeeds.forEach(element => { %>								
+                                                    <li class="activity-item activity-item-padding">
+                                                        <div class="activity-item-dt">
+                                                            <div class="activity-item-img">
+                                                                <img src="<%= '/images/blogs/'+element.thumbnail %>" alt="">
+                                                                
+                                                            </div>
+                                                            <div class="activity-text-dt">
+                                                                <a href="#" class="activity-title font-16"><%= element.title %></a>
+                                                                <div class="activity-time d-flex justify-content-between">
+                                                                    
+                                                                    <div>
+                                                                        <button class="btn btn-sm  btn-success">edit</button>
+                                                                        <button class="btn btn-sm btn-danger">hide</button>
+                                                                    </div>
+                                                                    <span> 10/06/2021 - By rithom </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                <% }) %>
+                                            </ul>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-following" role="tabpanel" aria-labelledby="pills-following-tab">
+                                        <div class="activities-list">
+                                            <% if(infeeds.length == 0){ %>
+                                            <div class="activity">
+                                                <div class="activity-empty-item">
+                                                    <div class="activity-empty-text">
+                                                        <div class="activity-empty-icon">
+                                                            <span><i class="uil uil-bell"></i></span>
+                                                        </div>
+                                                        No Blog post found
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% } %>
+                                            <ul class="activity-list activities-group">
+                                                <% infeeds.forEach(element => { %>								
+                                                <li class="activity-item activity-item-padding">
+                                                    <div class="activity-item-dt">
+                                                        <div class="activity-item-img">
+                                                            <img src="<%= '/images/blogs/'+element.thumbnail %>" alt="">
+                                                            
+                                                        </div>
+                                                        <div class="activity-text-dt">
+                                                            <a href="#" class="activity-title font-16"><%= element.title %></a>
+                                                            <div class="activity-time d-flex justify-content-between">
+                                                                
+                                                                <div>
+                                                                    <button class="btn btn-sm  btn-success">edit</button>
+                                                                    <button class="btn btn-sm btn-primary">show</button>
+                                                                </div>
+                                                                <span> 10/06/2021 - By rithom </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <% }) %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="create-form" role="tabpanel" aria-labelledby="create-form-tab">
+                                        <div class="main-card">
+                                            <div class="create-post">
+                                                <div class="create-post-top">
+                                                    <h4 class="item-title mb-0">Create a Post</h4>
+                                                </div>
+                                                <form action="/blog/create" onsubmit="return validateForm()" method="post" enctype="multipart/form-data">
+                                                    <div class="create-post-body">
+                                                        <div class="group-block">
+                                                            <label class="form-label">Title (60 charts)*</label>
+                                                            <input name="title" class="input-control" maxlength="60" required type="text" placeholder="Short, descriptive title">
+                                                        </div>
+                                                        <div class="group-block mt_2">
+                                                            <label class="form-label">Slug (40 charts)*</label>
+                                                            <input name="slug" class="input-control" maxlength="40" required type="text" placeholder="Short, descriptive title">
+                                                        </div>
+                                                        <div class="group-block mt_2">
+                                                            <label class="form-label">Description (130-150 charts)*</label>
+                                                            <input name="description" class="input-control"minlength="130" maxlength="150"  required type="text" placeholder="Short, descriptive title">
+                                                        </div>
+                                                        <div class="group-block mt_2">
+                                                            <label class="form-label">Thumbnail*</label>
+                                                            <input name="thumbnail" required type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                                                            <img src="" id="output" width="200px" height="170px" class="img img-fluid" alt="wait image">
+                                                        </div>
+                                                        <div class="group-block mt_2">
+                                                            <label class="form-label">Body*</label>
+                                                            <textarea name="body" required class="textarea-control ht-100" placeholder="Any additional details…"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="create-post-bottom">
+                                                        <button class="main-btn btn-hover w-100 h-40" type="submit">Create Post</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                      
+                            </div>
+                        </div>		
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    ///delete post
+        $(document).on('click', '.delete-post', function() {
+        const id = $(this).attr('feed-id');
+           
+            $.ajax({
+            url: '/delete-feed',
+            method: 'POST',
+            data: {
+                id:id
+            }
+        })
+        .then((response) =>{
+            if(response == 'success'){
+                alert('deleted succefull')
+            }else{
+                console.log(response)
+            }
+          
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        })
+    
+    ////get edit post
+        $(document).on('click', '.edit-post', function() {
+        const id = $(this).attr('feed-id');
+           
+            $.ajax({
+            url: '/get-edit-feed',
+            method: 'POST',
+            data: {
+                id:id
+            }
+        })
+        .then((response) =>{
+            $('#title').val(response[0].title)
+            CKEDITOR.instances['description'].setData(response[0].description);
+            //$('#description').val(response[0].description)
+            $('#status').val(response[0].status)
+            $('#feed_id').val(response[0].id)
+            $('#output').attr('src','/images/'+response[0].thumbnail)
+            $('#video-form').attr('action','/update/feed')
+    
+            $('#submit').val('Update')
+            //$('#form-head').innerHTML("Update Video")
+    
+            $('#demoModal').modal('show')
+            console.log('good');
+        })
+        .catch((error) =>{
+            console.log(error)
+        });
+    
+        });
+
+        function validateForm(){
+            return true;
+        }
+    </script>

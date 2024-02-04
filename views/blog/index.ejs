@@ -1,0 +1,80 @@
+<div class="our-blog-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="top-blog-slider">
+                    <div class="owl-carousel blogs-slider owl-theme">
+
+                       <% feeds.forEach(element => { %>
+                        <div class="item">
+                            <div class="main-card">
+                                <div class="blog-block flex-slide">
+                                    <div class="blog-img-card left">
+                                        <img src="<%= '/images/blogs/'+element.thumbnail %>" alt="">
+                                    </div>
+                                    <div class="blog-content right">
+                                        <h3><%= element.title %></h3>
+                                        <p><%= element.description %></p>
+                                        <p>Hapa itakaa description ambayo ni 130 characters for user impression and SEO Purposes.</p>
+                                        <ul class="blogpost-meta">
+                                            <li>
+                                                <a href="#" class="author-dt-meta">
+                                                    <i class="uil uil-user me-1"></i>Admin
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <span class="post-time-meta">
+                                                    <i class="uil uil-calendar-alt me-1"></i>March 18, 2024
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <a href="<%= '/blog/'+element.slug %>" class="btn main-btn btn-hover rw-100">View Post</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="more-blogs-block">
+                    <div class="row">
+
+                        <% top_feeds.forEach(element => { %>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="main-card mt-30">
+                                <div class="blog-block">
+                                    <div class="blog-img">
+                                        <a href="<%= '/blog/'+element.slug %>"><img src="<%= '/images/blogs/'+element.thumbnail %>" alt=""></a>
+                                    </div>
+                                    <div class="blog-content blog-content-area">
+                                        <!--span class="blog-tag">Announcement</span-->
+                                        <a href="<%= '/blog/'+element.slug %>" class="medium-blog-title"><%= element.title %></a>
+                                        <p><%= element.description %></p>
+                                        <p>Hapa itakaa description ambayo ni 130 characters for user impression and SEO Purposes.</p>
+                                        <ul class="blogpost-meta mb-0">
+                                            <li>
+                                                <a href="#" class="author-dt-meta">
+                                                    <i class="uil uil-user me-1"></i>Admin
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <span class="post-time-meta">
+                                                    <i class="uil uil-calendar-alt me-1"></i>March 18, 2024
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
